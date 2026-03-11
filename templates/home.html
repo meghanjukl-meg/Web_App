@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Alcohol Consumption Predictor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Beer Servings Analysis</h1>
+
+        <!-- Infographics Requirement -->
+        <div class="infographic">
+            <h3>Data Insights: Correlation Heatmap</h3>
+            <img src="{{ url_for('static', filename='images/correlation_heatmap.png') }}" alt="Infographic" style="max-width:100%;height:auto">
+        </div>
+        <hr>
+        <!-- p>Debug: Found {{ countries|length }} countries and {{ continents|length }} continents.</p -->
+        <!-- Prediction Form -->
+        <form action="/predict" method="POST">
+            <div class="form-group">
+                <label>Country:</label>
+                <select name="country" required>
+                    {% for c in countries %}
+                        <option value="{{ c }}">{{ c }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Continent:</label>
+                <select name="continent" required>
+                    {% for cont in continents %}
+                        <option value="{{ cont }}">{{ cont }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Beer Servings:</label>
+                <input type="number" name="beer" step="1" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label>Spirit Servings:</label>
+                <input type="number" name="spirit" step="1" min="0" required>
+            </div>
+
+            <div class="form-group">
+                <label>Wine Servings:</label>
+                <input type="number" name="wine" step="1" min="0" required>
+            </div>
+
+            <button type="submit">Predict Alcohol Content</button>
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="/static/css/res.css">
+</head>
+<body>
+    <div class="result-card">
+        <h1>Analysis</h1>
+        <p>Estimated Alcohol Content:</p>
+        <div class="prediction">
+            {{ prediction }} <span class="unit">Litres of Pure Alcohol</span>
+        </div>
+        <p>Based on the provided servings and region.</p>
+        <p style="font-size: 0.9rem; color: #030304;">Generated using the best-performing regression model (R² optimized).</p>
+        
+        <!-- Link back to home.html -->
+        <a href="/" class="back-btn">Predict Again</a>
+    </div>
+    
+</body>
+</html>
